@@ -1,4 +1,5 @@
 library(tidyverse)
+library(multcomp)
 
 # Costum theme for plotting
 my.theme = 
@@ -64,6 +65,6 @@ write.table(as.data.frame(TukeyHSD(anova$'7epiZ')$dose_ug_cm2),
 write.table(as.data.frame(TukeyHSD(anova$'9HZ')$dose_ug_cm2),
             file = "Fig_6_toxicity_assay/statistics/Tukey_HSD_9HZ.txt", sep = "\t", row.names = TRUE)
 
-write.table(as.data.frame(TukeyHSD(anova$'7epiZ')$dose_ug_cm2),
+write.table(as.data.frame(TukeyHSD(anova$'9H10epoZ')$dose_ug_cm2),
             file = "Fig_6_toxicity_assay/statistics/Tukey_HSD_9H10epoZ.txt", sep = "\t", row.names = TRUE)
 
