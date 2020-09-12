@@ -17,7 +17,7 @@ my.theme =
 # Data import & subsetting  #
 #############################
 
-df = read.csv(file = "wf_assays.csv", header = TRUE, check.names = FALSE, sep = ";")
+df = read.table(file = "Fig_6_toxicity_assay/wf_assays.txt", header = TRUE, check.names = FALSE, sep = "\t")
 
 df.sub = df %>% select(metabolite, dose_ug_cm2, relative_survival_to_mock) #%>% filter(dose_ug_cm2 != "mock")
 
@@ -45,7 +45,7 @@ df.sub %>%
   labs(x = "Applied Dose (ug/cm2)", y = "B. tabaci survival rate (relative to mock)")+
   my.theme
 
-ggsave(file = "dose_assay_wf.pdf", plot = p1, width = 5, height = 4)
+ggsave(file = "Fig_6_toxicity_assay/plots/dose_assay_wf.pdf", plot = p1, width = 5, height = 4)
 
          
   
