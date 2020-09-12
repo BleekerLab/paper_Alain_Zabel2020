@@ -47,5 +47,23 @@ df.sub %>%
 
 ggsave(file = "Fig_6_toxicity_assay/plots/dose_assay_wf.pdf", plot = p1, width = 5, height = 4)
 
-         
-  
+##############
+# Statistics #
+##############
+
+# Perform ANOVA on each treatment to see if concentrations give differnt survival
+# Create a list by subsetting eacht treatment, then do the ANOVA on each of them
+anova <- lapply(split(df.sub, 
+             df.sub$metabolite), 
+       function(d) {aov(relative_survival_to_mock ~ dose_ug_cm2, data = d) })
+
+# Perform post-hoc test per metabolite and write to file
+write.table(as.data.frame(TukeyHSD(anova$'7epiZ')$dose_ug_cm2),
+            file = "Fig_6_toxicity_assay/statistics/Tukey_HSD_zingiberene.txt", sep = "\t", row.names = TRUE)
+
+write.table(as.data.frame(TukeyHSD(anova$'9HZ')$dose_ug_cm2),
+            file = "Fig_6_toxicity_assay/statistics/Tukey_HSD_9HZ.txt", sep = "\t", row.names = TRUE)
+
+write.table(as.data.frame(TukeyHSD(anova$'7epiZ')$dose_ug_cm2),
+            file = "Fig_6_toxicity_assay/statistics/Tukey_HSD_9H10epoZ.txt", sep = "\t", row.names = TRUE)
+
