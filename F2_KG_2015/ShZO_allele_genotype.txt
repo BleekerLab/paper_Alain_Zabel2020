@@ -1,0 +1,8 @@
+genotype	ShZO_allele
+C32	homozygous_C32
+35	homozygous_PI127826
+14	homozygous_PI127826
+34	homozygous_PI127826
+30	homozygous_PI127826
+18	homozygous_C32
+PI127826	homozygous_PI127826
