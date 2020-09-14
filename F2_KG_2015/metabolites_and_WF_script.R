@@ -8,12 +8,12 @@ df.wf$plant <- as.factor(df.wf$plant)
 
 # Import metabolite data
 df.metabolites <- read.delim(file = "F2_KG_2015/leafwash_ug_mg_tissue.txt",
-                             header = TRUE, sep = "\t") %>%
-  pivot_longer(cols = Zingiberene:epoxy_zingiberenol,
+                             header = TRUE, sep = "\t", check.names = FALSE) %>%
+  pivot_longer(cols = '7epiZ':'9H10epoZ',
                names_to = "metabolite",
                values_to = "value")
 df.metabolites$metabolite <- factor(df.metabolites$metabolite, 
-                                    levels = c("Zingiberene", "Zingiberenol", "epoxy_zingiberenol"),
+                                    levels = c("7epiZ", "9HZ", "9H10epoZ"),
                                               ordered = TRUE)
 
 ####################
@@ -67,16 +67,22 @@ survival.metabolites <- inner_join(sum.survival, sum.metabolites, by = "genotype
 ########
 # Plot #
 ########
-
+p.metabolites.survival = 
 survival.metabolites %>%
 ggplot(aes(x = mean_value,
          y = mean_survival)) +
   geom_point()+
-  geom_smooth(method = "lm")+
+  geom_smooth(alpha= 0, method = "lm")+
   facet_wrap(~metabolite, ncol = 1, scale = "free") +
+  ylim(0,100)+
   stat_cor(
     method = "pearson",
     label.x = 0.15,
     label.x.npc = 0, 
     label.y.npc = 0.9)+
-  geom_text(label = survival.metabolites$genotype, vjust = 1, hjust = 1)
+  geom_text(label = survival.metabolites$genotype, vjust = 1, hjust = 1)+
+  xlab("metabolite level (ug / mg fresh-leaf weight)")+
+  ylab("B. tabaci survival (%)")+
+  theme_bw()
+
+ggsave(file = "F2_KG_2015/metabolites_vs_wf_survival.pdf", plot = p.metabolites.survival, height = 6, width = 4.5)
