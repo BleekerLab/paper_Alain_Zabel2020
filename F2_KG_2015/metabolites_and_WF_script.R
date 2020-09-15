@@ -35,18 +35,23 @@ df.metabolites %>%
 ##########################
 # plot whitefly survival #
 ##########################
-
+p.survival =
 df.wf$survival <- round((df.wf$alive/(df.wf$alive+df.wf$dead))*100)
-df.wf %>% 
+df.wf %>% filter(genotype %in% df.metabolites$genotype) %>%
   dplyr::group_by(genotype) %>%
   dplyr::summarise(mean_survival = mean(survival), se_survival = sd(survival)/sqrt(n())) %>%
   arrange(mean_survival) %>%
   
-  ggplot()+
-  geom_bar(aes(x = reorder(reorder(genotype, mean_survival), mean_survival), y = mean_survival),
-           stat = "identity") + 
+  ggplot(aes(x = factor(genotype, level = c("C32", "18", "35", "14", "34", "30", "PI127826")), y= mean_survival))+
+  geom_bar(stat = "identity") + 
   geom_errorbar(aes(x = genotype, ymin = mean_survival - se_survival, ymax = mean_survival + se_survival), width = 0.3)+
+  xlab("genotype")+
+  ylab("B.tabaci survival after 5 days (%)")+
   theme_bw()
+
+ggsave(file = "F2_KG_2015/whitefly_survival.pdf", plot = p.survival)
+
+
 
 ############################
 # Metabolites vs suurvival #
