@@ -1,1 +1,1 @@
-<img src="Figure3A.png" width="600px">
+<img src="wf_survival_per_chemotype.pdf">
