@@ -11,9 +11,12 @@ df.metabolites$metabolite <- factor(df.metabolites$metabolite,
                                     ordered = TRUE)
 
 # Summarise the metabolite data to get mean values and standard error
-sum.metabolites <- df.metabolites.alleles %>%
+sum.metabolites <- df.metabolites %>%
   dplyr::group_by(genotype, metabolite) %>% 
   dplyr::summarise(mean_value = mean(value), se_metabolites = sd(value)/sqrt(n()))
+
+# Join df's: keep the genotypes of which the genotypes are available
+df.metabolites.alleles <- right_join(sum.metabolites, df.alleles, by = "genotype")
 
 sum.metabolites$metabolite <- factor(sum.metabolites$metabolite, 
                                     levels = c("7epiZ", "9HZ", "9H10epoZ"),
@@ -22,8 +25,6 @@ sum.metabolites$metabolite <- factor(sum.metabolites$metabolite,
 # Import the avaialble genotyping data 
 df.alleles <- read.delim(file = "F2_KG_2015/ShZO_allele_genotype.txt", header = TRUE, sep = "\t")
 
-# Join df's: keep the genotypes of which the genotypes are available
-df.metabolites.alleles <- right_join(sum.metabolites, df.alleles, by = "genotype")
 
 ########
 # Plot #
@@ -37,7 +38,7 @@ ggplot(aes(x = reorder(genotype, mean_value), y = mean_value, fill= ShZO_allele)
   facet_wrap(~metabolite, scale = "free", ncol = 1) +
   xlab("F2-genotype")+
   ylab("Metabolite level (ug / mg fresh-leaf weight)")+
-  scale_fill_manual("ShZO allele", values = c("homozygous_PI127826" = "black", "homozygous_C32" = "red"))
+  scale_fill_manual("ShZO allele", values = c("homozygous_ShZO" = "black", "homozygous_Solyc01g008670" = "red"))+
   theme_bw()
   
   ggsave(file = "F2_KG_2015/metabolites_and_ShZO_alleles.pdf", plot = p.metabolites.alleles, height = 6, width = 6)
