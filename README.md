@@ -4,15 +4,20 @@ Repository with data + scripts of our contributions to Zabel et al., 2020.
 
 ## Table of contents
 
+* [Allignment ShZO allele PI127826 and LA2167](#allignement)
+
 * [ShZO allles and the production of derivatives in F2 plants](#ShZO-alleles-and-derivatives)
 
 * [Derivatives VS whitefly survival in F2 plants](#Zingiberene-vs-wf-survival)
 
 * [Whitefly survival in the BC lines of LA2167xLA4024](#wf-survival-BC1-lines)
 
+## Allignment ShZO allele PI127826 and LA2167
+<img src="/PI127826_vs_LA2167/ShZO_allignement_PI127826_LA2167.png" width = 600px>
+### First 25 AA encode the signalpeptide
+
 
 ## ShZO allles and the production of derivatives in F2 plants
-
 <img src="/F2_KG_2015/metabolites_and_ShZO_alleles.png" width = 600px>
 ### All F2 plants have have the zFPS/ZIS allele. F2-18 lacks the PI127826 allele of ShZO ZIS 
 
