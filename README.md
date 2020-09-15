@@ -19,7 +19,7 @@ Repository with data + scripts of our contributions to Zabel et al., 2020.
 ### First 26 AA encode the signalpeptide (TargetP-2.0)
 
 
-## ShZO allles and the production of derivatives in F2 plants
+## ShZO alleles and the production of derivatives in F2 plants
 <img src="/F2_KG_2015/metabolites_and_ShZO_alleles.png" width = 600px>
 ### All F2 plants have have the zFPS/ZIS allele. F2-18 lacks the PI127826 allele of ShZO ZIS 
 
