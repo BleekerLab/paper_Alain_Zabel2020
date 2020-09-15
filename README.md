@@ -14,7 +14,7 @@ Repository with data + scripts of our contributions to Zabel et al., 2020.
 
 ## Allignment ShZO allele PI127826 and LA2167
 <img src="/PI127826_vs_LA2167/ShZO_allignement_PI127826_LA2167.png" width = 600px>
-### First 25 AA encode the signalpeptide
+### First 26 AA encode the signalpeptide (TargetP-2.0)
 
 
 ## ShZO allles and the production of derivatives in F2 plants
