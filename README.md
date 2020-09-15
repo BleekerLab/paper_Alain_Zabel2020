@@ -24,7 +24,7 @@ Repository with data + scripts of our contributions to Zabel et al., 2020.
 ### All F2 plants have have the zFPS/ZIS allele. F2-18 lacks the PI127826 allele of ShZO ZIS 
 
 ## Whitefly survival on the F2 plants
-<img src="/F2_KG_2015/whitefly_survival.png"" width = 400px>
+<img src="/F2_KG_2015/whitefly_survival.png" width = 400px>
 
 ## Derivatives VS whitefly survival in F2 plants
 <img src="/F2_KG_2015/metabolites_vs_wf_survival.png" width = 600px>
