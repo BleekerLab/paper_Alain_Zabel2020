@@ -43,13 +43,13 @@ df.wf %>% filter(genotype %in% df.metabolites$genotype) %>%
   arrange(mean_survival) %>%
   
   ggplot(aes(x = factor(genotype, level = c("C32", "18", "35", "14", "34", "30", "PI127826")), y= mean_survival))+
-  geom_bar(stat = "identity") + 
+  geom_bar(stat = "identity", fill = "black") + 
   geom_errorbar(aes(x = genotype, ymin = mean_survival - se_survival, ymax = mean_survival + se_survival), width = 0.3)+
   xlab("genotype")+
   ylab("B.tabaci survival after 5 days (%)")+
   theme_bw()
 
-ggsave(file = "F2_KG_2015/whitefly_survival.pdf", plot = p.survival)
+ggsave(file = "F2_KG_2015/wf_survival.pdf", plot = p.survival, height = 4, width = 6)
 
 
 
@@ -90,4 +90,4 @@ ggplot(aes(x = mean_value,
   ylab("B. tabaci survival (%)")+
   theme_bw()
 
-ggsave(file = "F2_KG_2015/metabolites_vs_wf_survival.pdf", plot = p.metabolites.survival, height = 6, width = 4.5)
+ggsave(file = "F2_KG_2015/metabolites_vs_wf_survival.pdf", plot = p.metabolites.survival, height = 5, width = 4)
