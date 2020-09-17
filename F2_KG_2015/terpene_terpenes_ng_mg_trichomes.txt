@@ -1,4 +1,4 @@
-sample	genotype	metabolite	level
+sample	genotype	metabolite	value
 C32-1	C32	7epiZ	0
 C32-2	C32	7epiZ	0
 C32-3	C32	7epiZ	0

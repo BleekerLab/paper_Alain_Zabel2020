@@ -1,4 +1,4 @@
-genotype	ShZO_allele
+genotype	P450_allele
 C32	homozygous_Solyc01g008670
 35	homozygous_ShZO
 14	homozygous_ShZO
